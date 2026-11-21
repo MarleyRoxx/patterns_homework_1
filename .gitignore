@@ -33,6 +33,8 @@ out/
 
 ### Package Files ###
 *.jar
+!gradle/wrapper/gradle-wrapper.jar
+!artifacts/*.jar
 *.war
 *.nar
 *.ear
