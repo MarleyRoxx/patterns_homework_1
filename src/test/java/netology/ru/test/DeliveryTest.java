@@ -1,12 +1,16 @@
 package netology.ru.test;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selectors;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 import netology.ru.data.DataGenerator;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
@@ -17,6 +21,17 @@ import static com.codeborne.selenide.Selenide.open;
 
 @Slf4j
 class DeliveryTest {
+
+
+    @BeforeAll
+    static void setUpAll() {
+        Configuration.headless = true;
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless=new");
+        Configuration.browserCapabilities = options;
+    }
 
     @BeforeEach
     void setup() {
