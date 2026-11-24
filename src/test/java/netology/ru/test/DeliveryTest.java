@@ -22,17 +22,6 @@ import static com.codeborne.selenide.Selenide.open;
 @Slf4j
 class DeliveryTest {
 
-
-    @BeforeAll
-    static void setUpAll() {
-        Configuration.headless = true;
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--headless=new");
-        Configuration.browserCapabilities = options;
-    }
-
     @BeforeEach
     void setup() {
         open("http://localhost:9999");
